@@ -49,6 +49,7 @@ export const hogaresContent = {
     { id: 'recamaras', title: 'Recámaras', images: portfolio.hogares.recamaras },
     { id: 'cocinas', title: 'Cocinas', images: portfolio.hogares.cocinas },
     { id: 'exteriores', title: 'Exteriores', images: portfolio.hogares.exteriores },
+    { id: 'detalles', title: 'Detalles', images: portfolio.hogares.detalles },
   ],
   cta: proyectosContent.cta,
 }
@@ -66,6 +67,8 @@ export const comercialContent = {
   sections: [
     { id: 'restaurantes', title: 'Restaurantes', images: portfolio.comercial.restaurantes },
     { id: 'tiendas', title: 'Tiendas', images: portfolio.comercial.tiendas },
+    { id: 'oficinas', title: 'Oficinas', images: portfolio.comercial.oficinas },
+    { id: 'renders', title: 'Renders', images: portfolio.comercial.renders },
   ],
   cta: proyectosContent.cta,
 }

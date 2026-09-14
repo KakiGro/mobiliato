@@ -52,12 +52,14 @@ export const images = {
         `${base}/portfolio/hogares/recamaras-03-full.jpeg`,
         `${base}/portfolio/hogares/recamaras-04-full.jpg`,
         `${base}/portfolio/hogares/recamaras-05-full.jpg`,
+        `${base}/portfolio/hogares/recamaras-06-full.jpg`,
       ],
       cocinas: [
         `${base}/portfolio/hogares/cocinas-01-full.jpg`,
         `${base}/portfolio/hogares/cocinas-02-full.jpg`,
         `${base}/portfolio/hogares/cocinas-03-full.jpg`,
         `${base}/portfolio/hogares/cocinas-04-full.jpg`,
+        `${base}/portfolio/hogares/cocinas-05-full.jpg`,
       ],
       exteriores: [
         `${base}/portfolio/hogares/exteriores-01-full.jpeg`,
@@ -66,6 +68,11 @@ export const images = {
         `${base}/portfolio/hogares/exteriores-04-full.jpg`,
         `${base}/portfolio/hogares/exteriores-05-full.jpg`,
         `${base}/portfolio/hogares/exteriores-06-full.jpg`,
+      ],
+      detalles: [
+        `${base}/portfolio/hogares/detalles-01-full.jpg`,
+        `${base}/portfolio/hogares/detalles-02-full.jpg`,
+        `${base}/portfolio/hogares/detalles-03-full.jpg`,
       ],
     },
     comercial: {
@@ -82,6 +89,19 @@ export const images = {
         `${base}/portfolio/comercial/tiendas-04-full.jpg`,
         `${base}/portfolio/comercial/tiendas-05-full.jpg`,
       ],
+      oficinas: [
+        `${base}/portfolio/comercial/oficinas-01-full.jpg`,
+        `${base}/portfolio/comercial/oficinas-02-full.jpg`,
+        `${base}/portfolio/comercial/oficinas-03-full.jpg`,
+        `${base}/portfolio/comercial/oficinas-04-full.jpg`,
+      ],
+      renders: [
+        `${base}/portfolio/comercial/renders-01-full.jpg`,
+        `${base}/portfolio/comercial/renders-02-full.jpg`,
+        `${base}/portfolio/comercial/renders-03-full.jpg`,
+        `${base}/portfolio/comercial/renders-04-full.jpg`,
+        `${base}/portfolio/comercial/renders-05-full.jpg`,
+      ],
     },
   },
   nosotros: {
@@ -94,11 +114,9 @@ export const images = {
       ],
     },
     mesas: {
-      thumb: `${base}/nosotros/servicio-mesas-thumb.jpeg`,
+      thumb: `${base}/nosotros/servicio-mesas-thumb.jpg`,
       gallery: [
-        `${base}/nosotros/servicio-mesas-01.jpg`,
-        `${base}/nosotros/servicio-mesas-02.jpg`,
-        `${base}/nosotros/servicio-mesas-03.jpg`,
+        `${base}/nosotros/servicio-mesas-01.jpeg`,
       ],
     },
     libreros: {
@@ -107,6 +125,7 @@ export const images = {
         `${base}/nosotros/servicio-libreros-01.jpg`,
         `${base}/nosotros/servicio-libreros-02.jpg`,
         `${base}/nosotros/servicio-libreros-03.jpg`,
+        `${base}/nosotros/servicio-libreros-04.jpg`,
       ],
     },
     cocinas: {
