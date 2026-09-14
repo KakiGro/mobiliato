@@ -27,9 +27,9 @@ export const proyectosContent = {
     },
   ],
   cta: {
-    title: 'Convierte tu espacio en algo especial',
-    subtitle: 'Consigue hoy el hogar que tú y tu familia necesitan',
-    button: { label: 'Comienza ahora', href: '/contacto' },
+    title: '¿Listo para el siguiente espacio?',
+    subtitle: 'Cuéntanos si es un hogar, un local o una oficina. Empezamos desde ahí.',
+    button: { label: 'Iniciar proyecto', href: '/contacto' },
   },
 }
 
@@ -51,7 +51,11 @@ export const hogaresContent = {
     { id: 'exteriores', title: 'Exteriores', images: portfolio.hogares.exteriores },
     { id: 'detalles', title: 'Detalles', images: portfolio.hogares.detalles },
   ],
-  cta: proyectosContent.cta,
+  cta: {
+    title: 'Diseñemos el hogar que imaginas',
+    subtitle: 'De la sala a los detalles: un solo proceso, una sola visión.',
+    button: { label: 'Comienza ahora', href: '/contacto' },
+  },
 }
 
 export const comercialContent = {
@@ -70,5 +74,9 @@ export const comercialContent = {
     { id: 'oficinas', title: 'Oficinas', images: portfolio.comercial.oficinas },
     { id: 'renders', title: 'Renders', images: portfolio.comercial.renders },
   ],
-  cta: proyectosContent.cta,
+  cta: {
+    title: 'Diseñemos tu próximo espacio de marca',
+    subtitle: 'Mobiliario y ambientación que refuerzan la experiencia de tus clientes.',
+    button: { label: 'Cotizar proyecto', href: '/contacto' },
+  },
 }

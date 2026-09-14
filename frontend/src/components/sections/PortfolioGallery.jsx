@@ -6,10 +6,12 @@ import { useRevealOnScroll } from '@/hooks/useRevealOnScroll'
 import { cn } from '@/lib/utils'
 
 const tileLayouts = [
-  'aspect-[4/3]',
+  'aspect-[4/3] sm:col-span-2 sm:aspect-[2/1] lg:aspect-[21/9]',
   'aspect-[3/4] md:aspect-[5/6]',
   'aspect-square',
-  'aspect-[5/4] md:col-span-1',
+  'aspect-[5/4]',
+  'aspect-[4/5] md:aspect-[3/4]',
+  'aspect-[3/4] md:aspect-[4/3]',
 ]
 
 function GalleryTile({ image, alt, onOpen, index }) {
@@ -31,7 +33,7 @@ function GalleryTile({ image, alt, onOpen, index }) {
       <img
         src={image}
         alt={alt}
-        className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+        className="h-full w-full object-cover transition-transform duration-[900ms] ease-out motion-safe:group-hover:scale-[1.06]"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-forest/55 via-forest/0 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
       <div className="absolute inset-0 bg-forest/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />

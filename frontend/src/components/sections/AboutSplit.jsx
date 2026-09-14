@@ -39,7 +39,7 @@ export function AboutSplit({
             <img
               src={image}
               alt={imageAlt}
-              className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+              className="aspect-[4/3] w-full object-cover transition-transform duration-[900ms] ease-out motion-safe:group-hover:scale-[1.04]"
             />
           </div>
         </div>

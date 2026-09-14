@@ -1,5 +1,9 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 function isInViewport(element, threshold = 0.12) {
   const rect = element.getBoundingClientRect()
   const viewportHeight = window.innerHeight || document.documentElement.clientHeight
@@ -15,6 +19,11 @@ export function useRevealOnScroll({ threshold = 0.12, once = true } = {}) {
   useLayoutEffect(() => {
     const element = ref.current
     if (!element) return
+
+    if (prefersReducedMotion()) {
+      setVisible(true)
+      return
+    }
 
     if (isInViewport(element, threshold)) {
       setVisible(true)

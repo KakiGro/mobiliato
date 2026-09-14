@@ -51,8 +51,8 @@ export const homeContent = {
     imageAlt: 'Publicación de Mobiliato en Revista EntreMuros',
   },
   cta: {
-    title: 'Convierte tu espacio en algo especial',
-    subtitle: 'Consigue hoy el hogar que tú y tu familia necesitan',
-    button: { label: 'Comienza ahora', href: '/contacto' },
+    title: 'Hagamos de tu casa un hogar',
+    subtitle: 'Cuéntanos cómo vives tu espacio y empecemos a diseñarlo juntos.',
+    button: { label: 'Agenda una conversación', href: '/contacto' },
   },
 }

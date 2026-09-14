@@ -36,7 +36,7 @@ function CategoryCard({ category, index }) {
         <img
           src={category.cover}
           alt={category.title}
-          className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+          className="h-full w-full object-cover transition-transform duration-[900ms] ease-out motion-safe:group-hover:scale-[1.06]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/25 to-transparent" />
         <div className="absolute inset-0 bg-forest/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />

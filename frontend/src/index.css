@@ -274,6 +274,12 @@
       opacity: 0;
     }
 
+    .animate-in {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
     @keyframes page-veil-reveal-reduced {
       from {
         opacity: 1;

@@ -27,7 +27,7 @@ function ServiceTile({ service, onOpen, index }) {
         <img
           src={service.thumb}
           alt={service.title}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out motion-safe:group-hover:scale-[1.06]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-forest/85 via-forest/20 to-transparent" />
         <div className="absolute inset-0 bg-forest/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />

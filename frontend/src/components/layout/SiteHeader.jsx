@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -15,7 +15,7 @@ import { navLinks, socialLinks } from '@/data/navigation'
 import { images } from '@/lib/images'
 import { cn } from '@/lib/utils'
 
-function SocialIcon({ link, variant = 'header' }) {
+function SocialIcon({ link, variant = 'header', inverted = false }) {
   const iconSrc = images.brand.social[link.icon]
   const onLightSurface = variant === 'header' || variant === 'sheet'
 
@@ -27,7 +27,11 @@ function SocialIcon({ link, variant = 'header' }) {
       aria-label={link.name}
       className={cn(
         'inline-flex size-10 items-center justify-center rounded-sm transition-colors',
-        onLightSurface ? 'hover:bg-secondary' : 'text-bone/70 hover:text-bone',
+        inverted
+          ? 'text-bone/80 hover:bg-bone/10 hover:text-bone'
+          : onLightSurface
+            ? 'hover:bg-secondary'
+            : 'text-bone/70 hover:text-bone',
       )}
     >
       <img
@@ -35,7 +39,9 @@ function SocialIcon({ link, variant = 'header' }) {
         alt=""
         className={cn(
           'size-5 object-contain transition-opacity',
-          onLightSurface && 'brightness-0 opacity-80 hover:opacity-100',
+          inverted
+            ? 'brightness-0 invert opacity-85 hover:opacity-100'
+            : onLightSurface && 'brightness-0 opacity-80 hover:opacity-100',
         )}
       />
     </a>
@@ -44,15 +50,38 @@ function SocialIcon({ link, variant = 'header' }) {
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
+  const overHero = isHome && !scrolled
+
+  useEffect(() => {
+    if (!isHome) return
+
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [isHome])
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 shadow-sm backdrop-blur-md supports-backdrop-filter:bg-background/80">
+    <header
+      className={cn(
+        'fixed top-0 z-50 w-full transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500',
+        overHero
+          ? 'border-b border-transparent bg-transparent'
+          : 'border-b border-border/40 bg-background/95 shadow-sm backdrop-blur-md supports-backdrop-filter:bg-background/80',
+      )}
+    >
       <Container className="flex h-16 items-center justify-between gap-3 md:h-[5.5rem] md:gap-4">
         <Link to="/" className="shrink-0">
           <img
             src={images.brand.logo}
             alt="Mobiliato"
-            className="h-12 w-auto md:h-18"
+            className={cn(
+              'h-12 w-auto md:h-18',
+              overHero && 'bg-white',
+            )}
           />
         </Link>
 
@@ -61,7 +90,10 @@ export function SiteHeader() {
             link.disabled ? (
               <span
                 key={link.href}
-                className="cursor-not-allowed text-base text-muted-foreground/60"
+                className={cn(
+                  'cursor-not-allowed text-base',
+                  overHero ? 'text-bone/50' : 'text-muted-foreground/60',
+                )}
                 title="Próximamente"
               >
                 {link.label}
@@ -76,9 +108,13 @@ export function SiteHeader() {
                 className={({ isActive }) =>
                   cn(
                     'text-base transition-colors',
-                    isActive
-                      ? 'border-b-2 border-accent pb-1 font-medium text-foreground'
-                      : 'text-muted-foreground hover:text-foreground',
+                    overHero
+                      ? isActive
+                        ? 'border-b-2 border-accent pb-1 font-medium text-bone'
+                        : 'text-bone/80 hover:text-bone'
+                      : isActive
+                        ? 'border-b-2 border-accent pb-1 font-medium text-foreground'
+                        : 'text-muted-foreground hover:text-foreground',
                   )
                 }
               >
@@ -91,7 +127,12 @@ export function SiteHeader() {
         <div className="flex items-center gap-2 md:gap-4">
           <div className="hidden items-center gap-1 md:flex">
             {socialLinks.map((link) => (
-              <SocialIcon key={link.name} link={link} variant="header" />
+              <SocialIcon
+                key={link.name}
+                link={link}
+                variant="header"
+                inverted={overHero}
+              />
             ))}
           </div>
           <Button asChild className="hidden md:inline-flex">
@@ -104,7 +145,7 @@ export function SiteHeader() {
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button
-                variant="outline"
+                variant={overHero ? 'editorial' : 'outline'}
                 size="icon"
                 className="size-10 shrink-0 md:hidden"
               >

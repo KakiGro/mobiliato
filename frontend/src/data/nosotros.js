@@ -63,8 +63,8 @@ export const nosotrosContent = {
     },
   ],
   cta: {
-    title: 'Convierte tu espacio en algo especial',
-    subtitle: 'Consigue hoy el hogar que tú y tu familia necesitan',
-    button: { label: 'Comienza ahora', href: '/contacto' },
+    title: 'Conozcamos tu proyecto',
+    subtitle: 'Más de 30 años diseñando espacios con identidad y oficio.',
+    button: { label: 'Hablemos', href: '/contacto' },
   },
 }

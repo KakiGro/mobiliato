@@ -5,7 +5,14 @@ export function useHeroScrollFade() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)')
+
     const onScroll = () => {
+      if (motion.matches) {
+        setProgress(0)
+        return
+      }
+
       const element = ref.current
       if (!element) return
 
@@ -22,10 +29,12 @@ export function useHeroScrollFade() {
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onScroll, { passive: true })
+    motion.addEventListener('change', onScroll)
 
     return () => {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
+      motion.removeEventListener('change', onScroll)
     }
   }, [])
 
@@ -33,4 +42,3 @@ export function useHeroScrollFade() {
 
   return { ref, progress, opacity }
 }
-
