@@ -73,6 +73,8 @@ export const images = {
         `${base}/portfolio/hogares/detalles-01-full.jpg`,
         `${base}/portfolio/hogares/detalles-02-full.jpg`,
         `${base}/portfolio/hogares/detalles-03-full.jpg`,
+        `${base}/portfolio/hogares/detalles-04-full.jpg`,
+        `${base}/portfolio/hogares/detalles-05-full.jpg`,
       ],
     },
     comercial: {
